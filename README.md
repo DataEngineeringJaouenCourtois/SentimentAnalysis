@@ -31,4 +31,14 @@ Output : Running application where an end user can access through a web browser 
 Output : Running the app through the container on any user computer.
 
 
- 
+## Starting the Web App localy
+
+ Go in *web_app* folder and tap this command :
+
+ ```
+uvicorn app:app --reload
+ ```
+
+ To see the prediction form, go to this adress :
+
+ **http://127.0.0.1:8000/form**
