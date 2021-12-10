@@ -32,7 +32,7 @@ Output : Running the app through the container on any user computer.
 
 
 ## Starting the Web App localy
-
+---
  Go in *web_app* folder and tap this command :
 
  ```
@@ -42,3 +42,18 @@ uvicorn app:app --reload
  To see the prediction form, go to this adress :
 
  **http://127.0.0.1:8000/form**
+ 
+
+## Starting the Web App with Docker
+---
+ Go in *SentimentAnalysis* folder and tap this command :
+
+ ```
+docker-compose up
+ ```
+
+ To see the prediction form, go to this adress :
+
+ **http://0.0.0.0:8000/form**
+ 
+ 

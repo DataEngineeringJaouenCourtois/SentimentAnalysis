@@ -4,20 +4,20 @@ from typing import Optional
 
 from fastapi import FastAPI, Request, Form
 from fastapi.templating import Jinja2Templates
-from src.model import test_text
-
+from .src import model
+from .src.model import test_text
 
 from keras.models import load_model
 import pickle
 
 
-model = load_model('models/SentimentAnalysis.h5')
-with open('models/tokenizer.pickle', 'rb') as handle:
+model = load_model('app/web_app/models/SentimentAnalysis.h5')
+with open('app/web_app/models/tokenizer.pickle', 'rb') as handle:
     tokenizer = pickle.load(handle)
 
 
 app = FastAPI()
-templates = Jinja2Templates(directory="templates/")
+templates = Jinja2Templates(directory="app/web_app/templates/")
 
 @app.get('/')
 def read_root():
