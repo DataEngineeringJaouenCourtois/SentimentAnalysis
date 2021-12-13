@@ -6,7 +6,6 @@ from tensorflow.keras.preprocessing import sequence
 from tensorflow.keras.preprocessing.text import Tokenizer
 import re
 import numpy as np
-
 nltk.download('punkt')
 nltk.download('wordnet')
 
@@ -14,13 +13,12 @@ POSITIVE = "POSITIVE"
 NEGATIVE = "NEGATIVE"
 NEUTRAL = "NEUTRAL"
 
-SENTIMENT_THRESHOLDS = (0.4, 0.7)
-
 def test_text(text, model, tokenizer):
+    if text == '':
+        return 'no text input'
     clean = clean_sentences_from_text(text)
     clean = tokenizer.texts_to_sequences(clean)
     clean = sequence.pad_sequences(clean , maxlen=48)
-
     sentiment =  model.predict([clean])[0]
     return decode_sentiment(np.argmax(sentiment))  # Returning a POS/NEG/NEUT
 
